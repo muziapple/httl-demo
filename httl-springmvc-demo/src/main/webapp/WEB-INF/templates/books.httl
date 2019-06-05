@@ -2,7 +2,8 @@
 <html>
 <body>
 	<p>HTTL SpringMVC Demo</p>
-	<p>${header.userAgent}</p>
+	#[<p>六个指令：#set, #if, #else, #for, #break, #macro</p>]#
+	<p>${header.userAgent}</p>${header}
 	<!--#if(books)-->
 	<table border="1">
 		<tr>
@@ -26,6 +27,9 @@
 			<td>${book.discount}%</td>
 			<td>${book.price * book.discount / 100}</td>
 		</tr>
+		<!--#break(for.index == 4)-->
+		<!-- #else -->
+			没有数据。
 		<!--#end-->
 	</table>
 	<!--#end-->
