@@ -7,6 +7,11 @@ import java.util.List;
 import com.demo.domain.Book;
 import com.demo.service.BookService;
 
+/**
+ * will call DAO layer
+ * @author Wei
+ *
+ */
 public class BookServiceImpl implements BookService {
 
 	public List<Book> findBooks() throws Exception {

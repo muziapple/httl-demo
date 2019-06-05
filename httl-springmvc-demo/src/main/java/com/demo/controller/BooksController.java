@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.demo.service.BookService;
 
+/**
+ * call service layer
+ * @author Wei
+ *
+ */
 @Controller  
 public class BooksController {
 

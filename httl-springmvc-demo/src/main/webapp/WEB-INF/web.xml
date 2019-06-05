@@ -6,7 +6,7 @@
 
 	<context-param>  
 		<param-name>contextConfigLocation</param-name>  
-		<param-value>/WEB-INF/spring.xml</param-value>  
+		<param-value>/WEB-INF/spring.xml</param-value>  <!-- define service layer -->
 	</context-param>
 
     <listener>
@@ -20,7 +20,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>springmvc</servlet-name><!-- look for springmvc-servlet.xml -->
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
