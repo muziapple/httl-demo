@@ -4,7 +4,7 @@
 	<p>HTTL Struts Demo</p>
 	<p>${header.userAgent}</p>
 	<!--#if(books)-->
-	<table>
+	<table border="1">
 		<tr>
 			<td>序号</td>
 			<td>${"book.title".message}</td>
