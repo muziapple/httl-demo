@@ -1,0 +1,15 @@
+
+${extends("/layout.httl")}
+<!--#macro(crumbs)-->
+    $!{super.crumbs}<!-- \$!{}不过滤输出 --> &gt; <a href="/books">Books</a>
+<!--#end-->
+ 
+<!--#macro(main)-->
+    <table border="1">
+        <!--#for(Book book : books)-->
+        <tr>
+            <td>${book.title}</td>
+        </tr>
+        <!--#end-->
+    </table>
+<!--#end-->

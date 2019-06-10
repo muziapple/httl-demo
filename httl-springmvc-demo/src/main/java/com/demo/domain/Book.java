@@ -16,7 +16,9 @@
 package com.demo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Book
@@ -39,6 +41,8 @@ public class Book implements Serializable {
 	
 	private int discount;
 	
+	private List<Book> childBooks=new ArrayList<Book>();
+	
 	public Book() {
 	}
 	
@@ -53,6 +57,10 @@ public class Book implements Serializable {
 	
 	public String getTitle() {
 		return title;
+	}
+	
+	public void addChildBook(Book child){
+		this.childBooks.add(child);
 	}
 	
 	public void setTitle(String title) {
@@ -83,6 +91,10 @@ public class Book implements Serializable {
 		this.publication = publication;
 	}
 	
+	public List<Book> getChildBooks() {
+		return childBooks;
+	}
+
 	public int getPrice() {
 		return price;
 	}

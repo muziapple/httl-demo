@@ -17,7 +17,9 @@ public class BookServiceImpl implements BookService {
 	public List<Book> findBooks() throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		List<Book> books = new ArrayList<Book>();
-		books.add(new Book("Practical API Design", "Jaroslav Tulach", "Apress", format.parse("2008-07-29"), 75, 85));
+		Book book1 = new Book("Practical API Design", "Jaroslav Tulach", "Apress", format.parse("2008-07-29"), 75, 85);
+		book1.addChildBook(new Book("abc", "wei", "wei", format.parse("1980-07-29"), 99, 99));
+		books.add(book1);
 		books.add(new Book("Effective Java", "Joshua Bloch", "Addison-Wesley Professional", format.parse("2008-05-28"), 55, 70));
 		books.add(new Book("Java Concurrency in Practice", "Doug Lea", "Addison-Wesley Professional", format.parse("2006-05-19"), 60, 60));
 		books.add(new Book("Java Programming Language", "James Gosling", "Prentice Hall", format.parse("2005-08-27"), 65, 75));

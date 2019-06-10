@@ -1,9 +1,29 @@
-<!--#set(List<Book> books)-->
+<!-- #set(List<Book> books)-->
+<!-- ##set(String htmlhack) -->
+<!-- ##set(Math htmlhack) --> <!-- Defined different type variable htmlhack, conflict types: java.lang.String, java.lang.Math. -->
+
+<!-- #set(name = "abc") --> 生成局部变量的同时，put到Context的临时集合中
+<!-- #set(String name = "abc123") -->
+
+<!-- #set(age := 18) -->
 <html>
-<body>
+<style type="text/css">
+.div {
+    font-family:"";
+    star:expression_r(onload=function(){alert('cssHACK');});
+}
+</style>
+<body class="div">
 	<p>HTTL SpringMVC Demo</p>
 	#[<p>六个指令：#set, #if, #else, #for, #break, #macro</p>]#
 	<p>${header.userAgent}</p>${header}
+	<p>#directoutput</p>
+	<p>#if(0)AAA#else()BBB#end()CCC</p><!-- 如果指令名和文本相接,用无参括号隔开 -->
+	<!--## 定义宏，可当变量或方法执行 -->
+    <!--#macro(cover(Book book))-->
+            <img alt="${book.title}" src="xx" />
+    <!--#end-->
+	
 	<!--#if(books)-->
 	<table border="1">
 		<tr>
@@ -16,22 +36,26 @@
 			<td>折扣</td>
 			<td>售价</td>
 		</tr>
-		<!--#for(Book book : books)-->
-		<tr>
-			<td>${for.count}</td>
-			<td>${book.title}</td>
-			<td>${book.author}</td>
-			<td>${book.publisher}</td>
-			<td>${book.publication.format("yyyy-MM-dd")}</td>
+		<!--#for(Book book : books)--> <!-- ## #for(9)执行9次 --> ## 递归迭代，比如Menu有一个getChildren()方法返回子列表： #for(Menu menu : menus.recursive("getChildren"))
+		<tr>${for}
+			<td>${for.count} $!{cover(book)} <!--## 执行宏输出，也可以用${cover},应该会自动在context找Book object --></td>
+			<td>${for.index} ${book.title}</td> <!-- (${book.title}) -->
+			<td>${for.size} ${book.author}</td>
+			<td>${for.first} ${book.publisher}</td>
+			<td>${for.last} ${book.publication.format("yyyy-MM-dd")}/${book.publication.longtime()}</td><!-- 实际调用TemplateToolMethods.longtime(${book.publication}) -->
 			<td>${book.price}</td>
 			<td>${book.discount}%</td>
 			<td>${book.price * book.discount / 100}</td>
 		</tr>
-		<!--#break(for.index == 4)-->
+		<!--#break(for.index == 5)--> <!-- ## 多级#for循环 ${for.parent.parent.index} -->
 		<!-- #else -->
 			没有数据。
 		<!--#end-->
 	</table>
 	<!--#end-->
+	<form>
+	<input value="${htmlhack}" /> \${htmlhack.length}将报错No such property length in class java.lang.Object
+	<p>name:${name} age:${age}</p>先在\#set临时集合中查找，再到原生传入的parameters中查找，然后到上一级Context查找
+	</form>
 </body>
 </html>

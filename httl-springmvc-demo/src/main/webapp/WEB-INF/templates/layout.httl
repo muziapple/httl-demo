@@ -1,0 +1,26 @@
+<html>
+    <body>
+         <table border="1">
+            <tr>
+                <td>
+                    <!--#macro($crumbs)--> <!-- ##$表示在宏定义的位置上同时输出 = #macro(crumbs)加${crumbs} -->
+                        <a href="./">Home</a>
+                    <!--#end-->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--#macro($menus)-->
+                        <a href="/users.html">Users</a><br/>
+                        <a href="/books.html">Books</a><br/>
+                    <!--#end-->
+                </td>
+                <td>
+                    <!--#macro($main)-->
+                        Building...
+                    <!--#end-->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
