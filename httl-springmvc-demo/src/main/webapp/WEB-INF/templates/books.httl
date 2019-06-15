@@ -28,7 +28,7 @@
 	<table border="1">
 		<tr>
 			<td>序号</td>
-			<td>${"book.title".message}</td>
+			<td>${"book.title".message}/${message("book.title")}</td>localized=true时 basename_zh_CN.properties > basename_zh.properties > basename.properties
 			<td>作者</td>
 			<td>出版商</td>
 			<td>出版时间</td>
@@ -43,19 +43,39 @@
 			<td>${for.size} ${book.author}</td>
 			<td>${for.first} ${book.publisher}</td>
 			<td>${for.last} ${book.publication.format("yyyy-MM-dd")}/${book.publication.longtime()}</td><!-- 实际调用TemplateToolMethods.longtime(${book.publication}) -->
-			<td>${book.price}</td>
+			<td>${book.price}/${"true".toBoolean}</td>
 			<td>${book.discount}%</td>
-			<td>${book.price * book.discount / 100}</td>
+			<td>${book.price * book.discount / 100} ${"str1" + "str2"}</td>
+			##<td>${book.encodeJson}</td>
+			##<td>${book.encodeXml}</td>
+			##<td>${now()}/${random()}/${uuid()}</td>
+			
 		</tr>
 		<!--#break(for.index == 5)--> <!-- ## 多级#for循环 ${for.parent.parent.index} -->
-		<!-- #else -->
+		<!-- #else --> <!-- ## 如果前面的#for集合为空，则输出#else指令所包含的块 -->
 			没有数据。
-		<!--#end-->
+		<!--#endfor(Book book : books)--> <!-- 方便查找配对GOOD -->
 	</table>
-	<!--#end-->
+	<!--#endif(books)--><!-- 方便查找配对GOOD -->
 	<form>
 	<input value="${htmlhack}" /> \${htmlhack.length}将报错No such property length in class java.lang.Object
 	<p>name:${name} age:${age}</p>先在\#set临时集合中查找，再到原生传入的parameters中查找，然后到上一级Context查找
 	</form>
+#*
+属性查找顺序，以${obj.foo}为例：(编译时决定，不影响性能)
+
+    首先查找有没有导入obj类型的foo()静态方法
+    再查找obj.getFoo()函数
+    再查找obj.isFoo()函数
+    再查找obj.foo()函数
+    再查找obj.foo属性
+*#
+
+#set(colors = ["red","blue","green"].toCycle)
+#for(i : 1..10)
+${i} ${colors.next}/ ##Wrong?
+#end
+
+
 </body>
 </html>
