@@ -73,7 +73,7 @@
 
 #set(colors = ["red","blue","green"].toCycle)
 #for(i : 1..10)
-${i} ${colors.next}/ ##Wrong?
+${i} ${colors}/
 #end
 
 
