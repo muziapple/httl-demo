@@ -16,8 +16,8 @@
 <body class="div">
 	<p>HTTL SpringMVC Demo</p>
 	#[<p>六个指令：#set, #if, #else, #for, #break, #macro</p>]#
-	<p>${header.userAgent}</p>${header}
-	<p>#directoutput</p>
+	<p>${header.userAgent}</p> header=${header} ${now()}
+	<p>#directoutput</p>xxx=${xxx}
 	<p>#if(0)AAA#else()BBB#end()CCC</p><!-- 如果指令名和文本相接,用无参括号隔开 -->
 	<!--## 定义宏，可当变量或方法执行 -->
     <!--#macro(cover(Book book))-->
