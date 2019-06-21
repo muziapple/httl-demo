@@ -75,7 +75,10 @@
 #for(i : 1..10)
 ${i} ${colors}/
 #end
-
+<p>
+#for(weekday :"Monday" .."Sunday")
+${weekday}/
+#end
 
 </body>
 </html>
