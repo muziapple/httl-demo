@@ -1,1 +1,1 @@
-mvn -o jetty:run
+mvnDebug -o jetty:run 

@@ -22,7 +22,8 @@ public class PlayEngine {
 		Template template = engine.getTemplate("playengine.httl");
 		
 		//if only xxx_write.java WriterTemplate.doRenderStream throws UnsupportedOperationException
-		template.render(parameters, System.out);
+		//这里写死了outputstream，不像HttpServletResponse既可以取outputstream又可以取writer
+		template.render("parameters", System.out);
 	}
 
 }
