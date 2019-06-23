@@ -1,0 +1,1 @@
+mvn exec:java -Dexec.mainClass="com.demo.main.PlayEngine" -Dexec.args="arg0 arg1 arg2" -Dexec.classpathScope=runtime

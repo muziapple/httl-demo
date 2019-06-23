@@ -11,4 +11,12 @@ public class TemplateToolMethods {
 	public static String longtime(Date date){
 		return String.valueOf(date.getTime());
 	}
+	
+	public void init() {
+		System.out.println("xxxxxxxxx init");
+	}
+	
+	public void inited(){
+		System.out.println("xxxxxxxxx inited");
+	}
 }

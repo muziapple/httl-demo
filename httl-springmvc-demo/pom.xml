@@ -17,6 +17,11 @@
 			<version>1.0.11</version>
 		</dependency>
 		<dependency>
+            <groupId>com.github.httl</groupId>
+            <artifactId>httl-script</artifactId>
+            <version>1.0.11</version>
+        </dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.0.6.RELEASE</version>
