@@ -13,10 +13,10 @@ public class TemplateToolMethods {
 	}
 	
 	public void init() {
-		System.out.println("xxxxxxxxx init");
+		System.out.println("xxxxxxxxx init 将在属性注入完成后执行");
 	}
 	
 	public void inited(){
-		System.out.println("xxxxxxxxx inited");
+		System.out.println("xxxxxxxxx inited 所有扩展点初始化完后执行，以初始化先后逆序执行");
 	}
 }
