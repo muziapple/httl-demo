@@ -71,6 +71,18 @@
     再查找obj.foo属性
 *#
 
+#*
+变量查找顺序 以${foo}为例：
+(1) 首先查找当前模板内#set赋值的变量。
+(2) 再查找业务Controller返回的变量。
+(3) 然后查找请求属性：request.getAttribute("foo") 也可以指定访问的域${request.foo}
+(4) 然后查找请求参数：request.getParameter("foo")                  ${parameter.foo}
+(5) 然后查找请求头：request.getHeader("foo") 					  ${header.foo}
+(6) 然后查找临时会话属性：session.getAttribute("foo")				  ${session.foo}
+(7) 然后查找持外会话属性：cookie.get("foo")						  ${cookie.foo}
+(8) 然后查找应用属性：servletContext.getAttribute("foo")           ${application.foo}
+*#
+
 #set(colors = ["red","blue","green"].toCycle)
 #for(i : 1..10)
 ${i} ${colors}/
