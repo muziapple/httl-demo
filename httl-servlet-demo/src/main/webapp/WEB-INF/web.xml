@@ -23,7 +23,7 @@
 
 	<servlet-mapping>
 		<servlet-name>httlServlet</servlet-name>
-		<url-pattern>*.httl</url-pattern>
+		<url-pattern>*.httl</url-pattern> <!-- 处理forward到*.httl的请求 ，但会多次渲染httlServlet一次，filter一次 -->
 	</servlet-mapping>
 
 	<filter>
@@ -33,7 +33,7 @@
 
 	<filter-mapping>
 		<filter-name>httlFilter</filter-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.html</url-pattern><!-- 渲染path同名模板 booksServlet + httlFilter -->
 	</filter-mapping>
 
 </web-app>

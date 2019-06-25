@@ -20,7 +20,9 @@ public class BooksServlet extends HttlServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			//put to model
 			request.setAttribute("books", bookService.findBooks());
+			request.getRequestDispatcher("books.httl").forward(request, response);
 		} catch (Exception e) {
 			request.setAttribute("exception", e);
 			request.getRequestDispatcher("error.httl").forward(request, response);
