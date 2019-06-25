@@ -11,7 +11,8 @@ import javax.script.*;
 public class PlayEngine {
 
 	public static void main(String[] args) throws Throwable {
-		scriptEngine();
+//		scriptEngine();
+		clEngine();
 	}
 	
 	public static void scriptEngine() throws Throwable{

@@ -1,4 +1,4 @@
-<!-- #set(List<Book> books)-->
+<!-- #set(List<Book> books) --> ##强制要求声明变量#set定义，是为了明确模板的输入，这样可以强类型编译，提升性能。也方便模板的维护
 <!-- ##set(String htmlhack) -->
 <!-- ##set(Math htmlhack) --> <!-- Defined different type variable htmlhack, conflict types: java.lang.String, java.lang.Math. -->
 
