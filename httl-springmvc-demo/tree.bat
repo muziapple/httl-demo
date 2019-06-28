@@ -1,0 +1,1 @@
+mvn -o dependency:tree>tree.txt
